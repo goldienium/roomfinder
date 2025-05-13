@@ -1,5 +1,9 @@
 [
     { "name": "Alice", "score": 95 },
-    { "name": "Bob", "score": 88 }
+    { "name": "Bob", "score": 88 },
+    {
+      "name": "Elia",
+      "score": 92
+    }
   ]
   
