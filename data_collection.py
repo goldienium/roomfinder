@@ -27,9 +27,19 @@ try:
         days = course_info.find_all("div", class_="day")
         hours = course_info.find_all("div", class_="hour")
         del hours[0]
+        hours_list = []
+
+        #this is not final.
+        for hour_lst in hours:
+            lst = []
+            inner_div = hour_lst.find_all("div")
+            for hour in inner_div:
+                if hour.text.strip() != "":
+                    lst.append(hour.text.strip())
+            hours_list.append(lst)
         print(f"Found {len(days)} days and {len(hours)} hours.")
-        for day, hour in zip(days, hours):
-            print(f"Day: {day.text.strip()}, Hour: {hour.text.strip()}")
+        for day, hour in zip(days, hours_list):
+            print(f"Day: {day.text.strip()}, Hour: {', '.join(hour)}")
     else:
         print("Not found")
 finally:
